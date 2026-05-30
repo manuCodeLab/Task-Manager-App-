@@ -1,0 +1,391 @@
+:root {
+  color: #16201b;
+  background: #eef3f0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.auth-shell,
+.app-shell {
+  min-height: 100vh;
+}
+
+.auth-shell {
+  display: grid;
+  place-items: center;
+  padding: 28px;
+  background:
+    linear-gradient(135deg, rgba(38, 115, 98, 0.88), rgba(22, 32, 27, 0.92)),
+    url("https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=1600&q=80");
+  background-position: center;
+  background-size: cover;
+}
+
+.auth-panel {
+  width: min(100%, 470px);
+  display: grid;
+  gap: 24px;
+  padding: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: #267362;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 10px;
+  font-size: clamp(2rem, 4vw, 3.35rem);
+  line-height: 1.02;
+}
+
+.auth-copy {
+  margin-bottom: 0;
+  color: #52615a;
+  line-height: 1.6;
+}
+
+.mode-switch {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 4px;
+  border-radius: 8px;
+  background: #dde7e2;
+}
+
+.mode-switch button {
+  min-height: 42px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: #52615a;
+  font-weight: 800;
+}
+
+.mode-switch button.active {
+  background: #ffffff;
+  color: #16201b;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+.auth-form,
+.task-form,
+.edit-fields {
+  display: grid;
+  gap: 14px;
+}
+
+label {
+  display: grid;
+  gap: 7px;
+  color: #3b4a43;
+  font-size: 0.92rem;
+  font-weight: 800;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid #cad7d1;
+  border-radius: 7px;
+  background: #ffffff;
+  color: #16201b;
+  padding: 10px 12px;
+  outline: none;
+}
+
+textarea {
+  min-height: 88px;
+  resize: vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #267362;
+  box-shadow: 0 0 0 3px rgba(38, 115, 98, 0.14);
+}
+
+.primary-button,
+.ghost-button,
+.card-actions button {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 0;
+  border-radius: 7px;
+  font-weight: 900;
+}
+
+.primary-button {
+  background: #267362;
+  color: #ffffff;
+  padding: 0 18px;
+}
+
+.primary-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.primary-button.compact {
+  min-width: 104px;
+}
+
+.ghost-button,
+.card-actions button {
+  border: 1px solid #cad7d1;
+  background: #ffffff;
+  color: #24322b;
+  padding: 0 14px;
+}
+
+.error-message {
+  margin: 0;
+  border-radius: 7px;
+  background: #fff1ef;
+  color: #a33122;
+  padding: 11px 12px;
+  font-weight: 750;
+}
+
+.app-shell {
+  padding: 28px;
+  background: #eef3f0;
+}
+
+.topbar {
+  max-width: 1180px;
+  margin: 0 auto 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.topbar h1 {
+  margin: 0;
+}
+
+.task-form {
+  max-width: 1180px;
+  margin: 0 auto 18px;
+  grid-template-columns: 1.1fr 1.4fr 190px auto;
+  padding: 14px;
+  border: 1px solid #d7e1dd;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 14px 38px rgba(30, 48, 39, 0.08);
+}
+
+.board-error {
+  max-width: 1180px;
+  margin: 0 auto 18px;
+}
+
+.loading-state {
+  min-height: 320px;
+  display: grid;
+  place-items: center;
+  gap: 12px;
+  color: #52615a;
+  font-weight: 800;
+}
+
+.board {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  align-items: start;
+}
+
+.stage-column {
+  min-height: 360px;
+  border: 1px solid #d7e1dd;
+  border-radius: 8px;
+  background: #f8fbf9;
+}
+
+.stage-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 15px;
+  border-bottom: 1px solid #d7e1dd;
+}
+
+.stage-header h2 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.stage-header span {
+  min-width: 30px;
+  height: 30px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 999px;
+  background: #e4eee9;
+  color: #267362;
+  font-weight: 900;
+}
+
+.task-list {
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+}
+
+.task-card {
+  display: grid;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid #dce6e1;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 10px 22px rgba(30, 48, 39, 0.06);
+}
+
+.task-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.task-card h3 {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+
+.task-card p {
+  margin: 0;
+  color: #52615a;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.card-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.card-actions select {
+  min-width: 0;
+}
+
+.icon-button {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 auto;
+  display: inline-grid;
+  place-items: center;
+  border: 1px solid #dce6e1;
+  border-radius: 7px;
+  background: #ffffff;
+  color: #52615a;
+}
+
+.icon-button.danger:hover {
+  border-color: #e4aca4;
+  color: #a33122;
+}
+
+.empty-state {
+  margin: 0;
+  border: 1px dashed #bdccc6;
+  border-radius: 8px;
+  color: #6d7c75;
+  padding: 18px;
+  text-align: center;
+}
+
+.spin {
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 900px) {
+  .task-form,
+  .board {
+    grid-template-columns: 1fr;
+  }
+
+  .stage-column {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 620px) {
+  .auth-shell,
+  .app-shell {
+    padding: 16px;
+  }
+
+  .auth-panel {
+    padding: 22px;
+  }
+
+  .topbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .ghost-button {
+    width: 100%;
+  }
+
+  .card-actions {
+    flex-direction: column;
+  }
+}
