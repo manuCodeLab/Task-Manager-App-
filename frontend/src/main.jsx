@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import { CheckCircle2, Loader2, LogOut, Plus, Trash2 } from "lucide-react";
 import "./styles.css";
 
-const API_URL = import.meta.env.VITE_API_URL || "/api";
+const API_URL = import.meta.env.VITE_API_URL || "https://task-manager-app-1-ambs.onrender.com/api";
 const stages = ["Todo", "In Progress", "Done"];
 
 async function apiRequest(path, { token, ...options } = {}) {

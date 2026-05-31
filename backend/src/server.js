@@ -9,11 +9,25 @@ dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 4000;
-const allowedOrigins = process.env.CLIENT_ORIGIN
+const configuredOrigins = process.env.CLIENT_ORIGIN
   ? process.env.CLIENT_ORIGIN.split(",").map((origin) => origin.trim())
-  : true;
+  : [];
 
-app.use(cors({ origin: allowedOrigins, credentials: true }));
+app.use(
+  cors({
+    origin(origin, callback) {
+      const allowsAnyOrigin = configuredOrigins.length === 0 || configuredOrigins.includes("*");
+      const isVercelPreview = origin?.endsWith(".vercel.app");
+
+      if (!origin || allowsAnyOrigin || configuredOrigins.includes(origin) || isVercelPreview) {
+        return callback(null, true);
+      }
+
+      return callback(new Error("Not allowed by CORS"));
+    },
+    credentials: true
+  })
+);
 app.use(express.json());
 
 app.get("/", (_req, res) => {

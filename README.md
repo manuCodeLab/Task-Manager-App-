@@ -20,7 +20,7 @@ A small full-stack task manager for the intern assignment. Users can register, l
 ## Project Structure
 
 ```text
-backend/   Express API, auth, task routes, JSON storage
+backend/   Express API, auth, task routes, MongoDB setup
 frontend/  React/Vite app
 ```
 
